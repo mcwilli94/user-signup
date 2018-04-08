@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Sign Up</h1>
+
+<form action="/invalid", method="post">
+    <table>
+        <tr>
+            <td><label>Username</label></td>
+            <td>
+            <input type="text" name="username" />
+            {% if error_un %}
+                <font class="error">{{ error_un }}</font>
+            {% endif %}
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <label>Password</label></td>
+            <td>
+            <input type="password" name="password" />
+            {% if error_pwd %}
+                <font class="error">{{ error_pwd }}</font>
+            {% endif %}
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <label>Verify Password</label></td>
+            <td>
+            <input type="password" name="password-verification" />
+            {% if error_pwd_ver %}
+                <font class="error">{{ error_pwd_ver }}</font>
+            {% endif %}
+            </td>
+        </tr>
+        <tr>
+            <td><label>Email (optional)</label></td>
+            <td><input type="text" name="email" />
+            {% if error_email %}
+                <font class="error">{{ error_email }}</font>
+            {% endif %}
+            </td>
+        </tr>
+    </table>
+        <input type="submit" name="submission" value="Submit Query" />
+</form>
+
+{% endblock %}
